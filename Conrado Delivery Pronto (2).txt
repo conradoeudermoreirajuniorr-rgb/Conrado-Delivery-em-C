@@ -1,0 +1,850 @@
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+
+int main(){
+    char txt1[] = "      🎉  Bem Vindo ao Conrado Delivery! 🎉";
+    char txt2[] = "Bem Vindo!";
+    char txt3[] = "================== Menu ==================";
+    char txt4[] = " 1.Fazer Login    2.Cadastre-se   0.Sair";
+    char txt5[] = "Cadastro realizado com sucesso!";
+    char txt6[] = "Limite de cadastros atingido!";
+    char txt7[] = "Usuario ou Senha incorretos!";
+    char txt8[] = "Bem Vindo ADEMIRO!!";
+    char txt9[] = "Saindo...";
+    char txt10[] = "*Cardápio*";
+    char txt11[] = "1.Restaurante   2.FastFood   3.Bebidas   4.Carrinho   0.Voltar";
+    char txt12[] = " --------------------------------------------------------------------- ";
+    char txt13[] = "|      1      |      2      |       3      |      4      |      5     |";
+    char txt14[] = "|---------------------------------------------------------------------|";
+    char txt15[] = "|             |             |     Filé     |             |            |";
+    char txt16[] = "|   Macarrão  |  Strogonoff |   de Frango  |   Lasanha   |  Galinhada |";
+    char txt17[] = "|  Carbonara  |             |       a      |             |            |";
+    char txt18[] = "|             |             |  Parmegiana  |             |            |";
+    char txt19[] = "|---------------------------------------------------------------------|";
+    char txt20[] = "|             |             |              |             |            |";
+    char txt21[] = "|   R$59.99   |   R$32.50   |    R$39.99   |   R$39.99   |  R$45.50   |";
+    char txt22[] = "|             |             |              |             |            |";
+    char txt23[] = " --------------------------------------------------------------------- ";
+    char txt24[] = " --------------------------------------------------------------------- ";
+    char txt25[] = "|      1      |      2      |       3      |      4      |      5     |";
+    char txt26[] = "|---------------------------------------------------------------------|";
+    char txt27[] = "|             |             |              |             |   Batata   |";
+    char txt28[] = "|   X-bacon   |   X-Salada  |   X-Burguer  |    Smash    |   Frita    |";
+    char txt29[] = "|             |             |              |   Burguer   | c/ Cheedar |";
+    char txt30[] = "|             |             |              |             |  e Bacon   |";
+    char txt31[] = "|---------------------------------------------------------------------|";
+    char txt32[] = "|             |             |              |             |            |";
+    char txt33[] = "|   R$45.50   |   R$35.50   |    R$39.99   |   R$45.00   |  R$47.70   |";
+    char txt34[] = "|             |             |              |             |            |";
+    char txt35[] = " --------------------------------------------------------------------- ";
+    char txt36[] = " --------------------------------------------------------------------- ";
+    char txt37[] = "|      1      |      2      |       3      |      4      |      5     |";
+    char txt38[] = "|---------------------------------------------------------------------|";
+    char txt39[] = " |  Coca-Cola  |  Coca-Cola  |    Guaraná   |   Guaraná   |  Sprite c/ |";
+    char txt40[] = "|             |    zero     |    Mineiro   |  Antártica  |    Lean    |";
+    char txt41[] = "|    300ml    |    300ml    |     310ml    |    350ml    |    510ml   |";
+    char txt42[] = "|             |             |              |             |            |";
+    char txt43[] = "|---------------------------------------------------------------------|";
+    char txt44[] = "|             |             |              |             |            |";
+    char txt45[] = "|   R$6.50    |   R$4.99    |    R$4.50    |   R$5.00    |   R$9.99   |";
+    char txt46[] = "|             |             |              |             |            |";
+    char txt47[] = " --------------------------------------------------------------------- ";
+    char txt48[] = "Voltando...";
+    char txt49[] = "       👋  Volte Sempre! 👋";
+    char txt50[] = "=========== CARRINHO ===========";
+    char txt51[100];
+    char txt52[100];
+    char txt53[100];
+    char txt54[100];
+    char txt55[100];
+    char txt56[] = "1.Finalizar Compra   2.Remover Item   3.Cupom   0.Voltar";
+    char txt57[] = "   ⭐ Cupom de Novo Usuário⭐" ;
+    char txt58[] = "_______________________";
+    char txt59[] = "\\                      |";
+    char txt60[] = " \\                     |";
+    char txt61[] = "  >   Cupom: newuser   |";
+    char txt62[] = " /                     |";
+    char txt63[] = "/______________________|";
+    char txt64[] = "Numero inválido! Digite novamente.";
+    char txt65[] = "Carrinho Vazio!";
+    char txt66[] = ":) Vá às compras! :)";
+    char txt67[] = "Cupom aplicado!";
+    char txt68[] = "Cupom inválido ou já utilizado!";
+    char txt69[100];
+    char txt70[] = "50% de Desconto";
+    char txt71[] = "================== FORMA DE PAGAMENTO ==================";
+    char txt72[] = "1.Dinheiro   2.Cartão de Crédito   3.Cartão de Débito   4.Pix";
+    char txt73[] = "Precisa de Troco?";
+    char txt74[] = "(1)Sim  (2)Não";
+    char txt75[] = "Troco pra quanto?";
+    char txt76[] = "Valor inválido";
+    char txt77[100];
+    char txt78[] = "Pedido recebido!";
+    char txt79[] = "Restaurante preparando o pedido...";
+    char txt80[] = "Pedido embalado.";
+    char txt81[] = "Entregador saiu para entrega...";
+    char txt82[] = "Entregador chegando ao destino...";
+    char txt83[] = "Pedido entregue com sucesso!";
+    char txt84[] = "=============== Cartão de Crédito ===============";
+    char txt85[] = "=============== Cartão de Débito ===============";
+    char txt86[] = "Processando pagamento...";
+    char txt87[] = "Pagamento APROVADO!";
+    char txt88[] = "Pagamento RECUSADO!";
+    char txt89[] = "Saldo insuficiente.";
+    char txt90[] = "Por favor, tente outra forma de pagamento.";
+    char txt91[] = "====================== PIX ======================";
+    char txt92[] = "Obrigado pela a Avaliação!";
+    char txt93[] = "(Válido apenas para a primeira compra)";
+    char txt109[] = "Ou use";
+    char txt110[] = "Chave aleatória: 123e4567-e89b-12d3-a456-426614174000";
+    char txt111[] = "Aguardando confirmação de pagamento do app...";
+    char txt112[] = "Avalie seu Pedido";
+    char txt113[] = "1.★ Muito ruim    2.★ ★ Abaixo do esperado    3.★ ★ ★ Razoável    4.★ ★ ★ ★ Boa    5.★ ★ ★ ★ ★ Exelente";
+    
+    int largura = 120;
+    char admuser[] = "admin";
+    char admpass[] = "admin";
+    char nuser[3][30];
+    char npass[3][30];
+    char user[30];
+    char pass[30];
+    int cadastros = 0;
+    int acc, l, p, q, r, quantidade, w, remover, pag, troco, avaliar;
+    char produtos[15][40] = {"Macarrao Carbonara", "Strogonoff", "File de Frango a Parmegiana", "Lasanha", "Galinhada", "X-Bacon", "X-Salada", "X-Burguer",
+    "Smash Burguer", "Batata Frita", "Coca-Cola 300ml", "Coca-Cola Zero 300ml", "Guarána Mineiro 310ml", "Guarána Antárctica 350ml", "Sprite c/ Lean 510ml"};
+    float precos[15] = {50.99, 32.50, 39.99, 39.99, 45.50, 45.50, 35.50, 39.99, 45.00, 47.70, 6.50, 4.99, 4.50, 5.00, 9.99};
+    int car[100][2];
+    int qtdCar = 0, cupom = 0, buyEnd = 0, buyEnd1 = 0;
+    float total = 0, economia = 0;
+    char cup[10];
+    int cupomUsed[3] = {0};
+    double troco1;
+    
+    // Variáveis para os Cartões
+    char num_cartao[25];
+    char validade_cartao[10];
+    char cvv_cartao[5];
+
+    int space1 = (largura - strlen(txt1)) / 2;
+    int space2 = (largura - strlen(txt2)) / 2;
+    int space3 = (largura - strlen(txt3)) / 2;
+    int space4 = (largura - strlen(txt4)) / 2;
+    int space5 = (largura - strlen(txt5)) / 2;
+    int space6 = (largura - strlen(txt6)) / 2;
+    int space7 = (largura - strlen(txt7)) / 2;
+    int space8 = (largura - strlen(txt8)) / 2;
+    int space9 = (largura - strlen(txt9)) / 2;
+    int space10 = (largura - strlen(txt10)) / 2;
+    int space11 = (largura - strlen(txt11)) / 2;
+    int space12 = (largura - strlen(txt12)) / 2;
+    int space13 = (largura - strlen(txt13)) / 2;
+    int space14 = (largura - strlen(txt14)) / 2;
+    int space15 = (largura - strlen(txt15)) / 2;
+    int space16 = (largura - strlen(txt16)) / 2;
+    int space17 = (largura - strlen(txt17)) / 2;
+    int space18 = (largura - strlen(txt18)) / 2;
+    int space19 = (largura - strlen(txt19)) / 2;
+    int space20 = (largura - strlen(txt20)) / 2;
+    int space21 = (largura - strlen(txt21)) / 2;
+    int space22 = (largura - strlen(txt22)) / 2;
+    int space23 = (largura - strlen(txt23)) / 2;
+    int space24 = (largura - strlen(txt24)) / 2;
+    int space25 = (largura - strlen(txt25)) / 2;
+    int space26 = (largura - strlen(txt26)) / 2;
+    int space27 = (largura - strlen(txt27)) / 2;
+    int space28 = (largura - strlen(txt28)) / 2;
+    int space29 = (largura - strlen(txt29)) / 2;
+    int space30 = (largura - strlen(txt30)) / 2;
+    int space31 = (largura - strlen(txt31)) / 2;
+    int space32 = (largura - strlen(txt32)) / 2;
+    int space33 = (largura - strlen(txt33)) / 2;
+    int space34 = (largura - strlen(txt34)) / 2;
+    int space35 = (largura - strlen(txt35)) / 2;
+    int space36 = (largura - strlen(txt36)) / 2;
+    int space37 = (largura - strlen(txt37)) / 2;
+    int space38 = (largura - strlen(txt38)) / 2;
+    int space39 = (largura - strlen(txt39)) / 2;
+    int space40 = (largura - strlen(txt40)) / 2;
+    int space41 = (largura - strlen(txt41)) / 2;
+    int space42 = (largura - strlen(txt42)) / 2;
+    int space43 = (largura - strlen(txt43)) / 2;
+    int space44 = (largura - strlen(txt44)) / 2;
+    int space45 = (largura - strlen(txt45)) / 2;
+    int space46 = (largura - strlen(txt46)) / 2;
+    int space47 = (largura - strlen(txt47)) / 2;
+    int space48 = (largura - strlen(txt48)) / 2;
+    int space49 = (largura - strlen(txt49)) / 2;
+    int space50 = (largura - strlen(txt50)) / 2;
+    int space56 = (largura - strlen(txt56)) / 2;
+    int space57 = (largura - strlen(txt57)) / 2;
+    int space58 = (largura - strlen(txt58)) / 2;
+    int space59 = (largura - strlen(txt59)) / 2;
+    int space60 = (largura - strlen(txt60)) / 2;
+    int space61 = (largura - strlen(txt61)) / 2;
+    int space62 = (largura - strlen(txt62)) / 2;
+    int space63 = (largura - strlen(txt63)) / 2;
+    int space64 = (largura - strlen(txt64)) / 2;
+    int space65 = (largura - strlen(txt65)) / 2;
+    int space66 = (largura - strlen(txt66)) / 2;
+    int space67 = (largura - strlen(txt67)) / 2;
+    int space68 = (largura - strlen(txt68)) / 2;
+    int space70 = (largura - strlen(txt70)) / 2;
+    int space71 = (largura - strlen(txt71)) / 2;
+    int space72 = (largura - strlen(txt72)) / 2;
+    int space73 = (largura - strlen(txt73)) / 2;
+    int space74 = (largura - strlen(txt74)) / 2;
+    int space75 = (largura - strlen(txt75)) / 2;
+    int space76 = (largura - strlen(txt76)) / 2;
+    int space78 = (largura - strlen(txt78)) / 2;
+    int space79 = (largura - strlen(txt79)) / 2;
+    int space80 = (largura - strlen(txt80)) / 2;
+    int space81 = (largura - strlen(txt81)) / 2;
+    int space82 = (largura - strlen(txt82)) / 2;
+    int space83 = (largura - strlen(txt83)) / 2;
+    int space84 = (largura - strlen(txt84)) / 2;
+    int space85 = (largura - strlen(txt85)) / 2;
+    int space86 = (largura - strlen(txt86)) / 2;
+    int space87 = (largura - strlen(txt87)) / 2;
+    int space88 = (largura - strlen(txt88)) / 2;
+    int space89 = (largura - strlen(txt89)) / 2;
+    int space90 = (largura - strlen(txt90)) / 2;
+    int space91 = (largura - strlen(txt91)) / 2;
+    int space92 = (largura - strlen(txt92)) / 2;
+    int space93 = (largura - strlen(txt93)) / 2;
+    int space109 = (largura - strlen(txt109)) / 2;
+    int space110 = (largura - strlen(txt110)) / 2;
+    int space111 = (largura - strlen(txt111)) / 2;
+    int space112 = (largura - strlen(txt112)) / 2;
+    int space113 = (largura - strlen(txt113)) / 2;
+    
+    printf("%*s%s\n\n", space1, "", txt1);
+    
+    //login = admin|admin
+    while(1){
+        
+        printf("%*s%s\n", space3, "", txt3);
+        printf("%*s%s\n\n", space4, "", txt4);
+        
+        if(scanf("%d", &acc) != 1){
+            printf("\033[A");
+            printf("\033[2K");
+            printf("                 ERROR!!\n                                                                                      ERROR!!\n                                                ERROR!!\n             ERROR!!\n                                                                               ERROR!!\n\n                                                  DIGITE APENAS NÚMEROS!\n\n");
+            while (getchar() != '\n'); // limpa o buffer
+            continue;
+        }
+        
+        //Sair do app
+        if(acc == 0){
+            printf("\033[A");
+            printf("\033[2K");
+            printf("\n%*s%s\n", space9, "", txt9);
+            printf("\n%*s%s", space49, "", txt49);
+            break;
+        }
+            
+        //cadasto
+        else if(acc == 2){
+            printf("\033[A");
+            printf("\033[2K");
+            
+            //limite de cadastro
+            if(cadastros >= 2){
+                printf("%*s%s\n\n", space6, "", txt6);
+                continue;
+            }
+            
+            printf("Novo Usuario : ");
+            scanf("%s", nuser[cadastros]);
+            printf("Nova Senha : ");
+            scanf("%s", npass[cadastros]);
+            
+            cadastros++;
+            
+            printf("%*s%s\n\n", space5, "", txt5);
+        }
+            
+        //login
+        else if(acc == 1){
+            printf("\033[A");
+            printf("\033[2K");
+            printf("Usuário : ");
+            scanf("%s", user);
+            printf("Senha : ");
+            scanf("%s", pass);
+            
+            if(strcmp(user, admuser) == 0 && strcmp(pass, admpass) == 0){
+                printf("%*s%s\n\n", space8, "", txt8);
+                continue;
+            }
+            
+            int contas = 0;
+            
+            for(int i = 0; i < cadastros; i++){
+                
+                if(strcmp(user, nuser[i]) == 0 && strcmp(pass, npass[i]) == 0){
+                    int userAtual = i;
+                    
+                    //cupom de desconto
+                    printf("%*s%s\n\n", space2, "", txt2);
+                    printf("%*s%s\n", space57, "", txt57);
+                    printf("%*s%s\n", space70, "", txt70);
+                    printf("%*s%s\n", space93, "", txt93);
+                    printf("%*s%s\n", space58, "", txt58);
+                    printf("%*s%s\n", space59, "", txt59);
+                    printf("%*s%s\n", space60, "", txt60);
+                    printf("%*s%s\n", space61, "", txt61);
+                    printf("%*s%s\n", space62, "", txt62);
+                    printf("%*s%s\n\n\n", space63, "", txt63);
+                    
+                    contas = 1;
+                    
+                    //Lojas
+                    while(1){
+                        buyEnd = 0;
+                        buyEnd1 = 0;
+                        
+                        printf("%*s%s\n", space3, "", txt3);
+                        printf("%*s%s\n\n", space11, "", txt11);
+                        if(scanf("%d", &l) != 1){
+                            printf("\033[2K");
+                            printf("\033[A");
+                            printf("                 ERROR!!\n                                                                                      ERROR!!\n                                                ERROR!!\n             ERROR!!\n                                                                               ERROR!!\n\n                                                  DIGITE APENAS NÚMEROS!\n\n");
+                            while (getchar() != '\n');
+                            continue;
+                        }
+                            
+                        //voltar para o login
+                        if(l == 0){
+                            printf("\033[A");
+                            printf("\033[2K");
+                            printf("%*s%s\n\n", space48, "", txt48);
+                            break;
+                        }
+                        
+                        //cardapio 1
+                        else if(l == 1){
+                            printf("\033[A");
+                            printf("\033[2K");
+                            
+                            printf("%*s%s\n", space10, "", txt10);
+                            printf("%*s%s\n", space12, "", txt12);
+                            printf("%*s%s\n", space13, "", txt13);
+                            printf("%*s%s\n", space14, "", txt14);
+                            printf("%*s%s\n", space15, "", txt15);
+                            printf("%*s%s\n", space16, "", txt16);
+                            printf("%*s%s\n", space17, "", txt17);
+                            printf("%*s%s\n", space18, "", txt18);
+                            printf("%*s%s\n", space19, "", txt19);
+                            printf("%*s%s\n", space20, "", txt20);
+                            printf("%*s%s\n", space21, "", txt21);
+                            printf("%*s%s\n", space22, "", txt22);
+                            printf("%*s%s\n", space23, "", txt23);
+                            while(1){
+                                printf("\nDigite um número do cardápio de sua preferência(0 = Voltar): ");
+                                if(scanf("%d", &p) != 1){
+                                    printf("                 ERROR!!\n                                                                                      ERROR!!\n                                                ERROR!!\n             ERROR!!\n                                                                               ERROR!!\n\n                                                  DIGITE APENAS NÚMEROS!\n\n");
+                                    while (getchar() != '\n');
+                                    continue;
+                                }
+                                
+                                //voltar para as lojas
+                                if(p == 0){
+                                    printf("\n\n%*s%s\n\n", space48, "", txt48);
+                                    break;
+                                }
+                                else if(p >= 1 && p <= 5){
+                                    int cod = p - 1;
+                                    printf("Quatidade{Max. 10}(0 = Voltar): ");
+                                    if(scanf("%d", &quantidade) != 1){
+                                        printf("                 ERROR!!\n                                                                                      ERROR!!\n                                                ERROR!!\n             ERROR!!\n                                                                               ERROR!!\n\n                                                  DIGITE APENAS NÚMEROS!\n\n");
+                                        while (getchar() != '\n');
+                                        continue;
+                                    }
+                                    //adição ao carrinho
+                                    if(quantidade >= 1 && quantidade <= 10){
+                                        car[qtdCar][0] = cod;
+                                        car[qtdCar][1] = quantidade;
+                                        qtdCar++;
+                                        printf("\n%d %s adicionado(s) ao carrinho!\n", quantidade, produtos[cod]);
+                                    }
+                                    //Voltar para o menu
+                                    else if(quantidade == 0){
+                                        printf("%*s%s\n", space48, "", txt48);
+                                        continue;
+                                    }
+                                    else{
+                                        printf("Quantidade inválida!!\n");
+                                    }
+                                }
+                                else{
+                                    printf("Número inválido!!\n");
+                                }
+                                continue;
+                            }
+                        }
+                        
+                        else if(l == 2){
+                            printf("\033[A");
+                            printf("\033[2K");
+                            
+                            printf("%*s%s\n", space10, "", txt10);
+                            printf("%*s%s\n", space24, "", txt24);
+                            printf("%*s%s\n", space25, "", txt25);
+                            printf("%*s%s\n", space26, "", txt26);
+                            printf("%*s%s\n", space27, "", txt27);
+                            printf("%*s%s\n", space28, "", txt28);
+                            printf("%*s%s\n", space29, "", txt29);
+                            printf("%*s%s\n", space30, "", txt30);
+                            printf("%*s%s\n", space31, "", txt31);
+                            printf("%*s%s\n", space32, "", txt32);
+                            printf("%*s%s\n", space33, "", txt33);
+                            printf("%*s%s\n", space34, "", txt34);
+                            printf("%*s%s\n", space35, "", txt35);
+                            while(1){
+                                printf("\nDigite um número do cardápio de sua preferência(0 = Voltar): ");
+                                if(scanf("%d", &q) != 1){
+                                    printf("                 ERROR!!\n                                                                                      ERROR!!\n                                                ERROR!!\n             ERROR!!\n                                                                               ERROR!!\n\n                                                  DIGITE APENAS NÚMEROS!\n\n");
+                                    while (getchar() != '\n');
+                                    continue;
+                                }
+                                
+                                if(q == 0){
+                                    printf("\n\n%*s%s\n\n", space48, "", txt48);
+                                    break;
+                                }
+                                else if(q >= 1 && q <= 5){
+                                    int cod = q + 4;
+                                    printf("Quatidade{Max. 10}(0 = Voltar): ");
+                                    scanf("%d", &quantidade);
+                                    
+                                    if(quantidade >= 1 && quantidade <= 10){
+                                        car[qtdCar][0] = cod;
+                                        car[qtdCar][1] = quantidade;
+                                        qtdCar++;
+                                        printf("\n%d %s adicionado(s) ao carrinho!\n", quantidade, produtos[cod]);
+                                    }
+                                    else if(quantidade == 0){
+                                        printf("%*s%s\n", space48, "", txt48);
+                                        continue;
+                                    }
+                                    else{
+                                        printf("Quantidade inválida!!\n");
+                                    }
+                                }
+                                else{
+                                    printf("Número inválido!!\n");
+                                }
+                                continue;
+                            }
+                        }
+                        
+                        else if(l == 3){
+                            printf("\033[2K");
+                            printf("\033[A");
+                            
+                            printf("%*s%s\n", space10, "", txt10);
+                            printf("%*s%s\n", space36, "", txt36);
+                            printf("%*s%s\n", space37, "", txt37);
+                            printf("%*s%s\n", space38, "", txt38);
+                            printf("%*s%s\n", space39, "", txt39);
+                            printf("%*s%s\n", space40, "", txt40);
+                            printf("%*s%s\n", space41, "", txt41);
+                            printf("%*s%s\n", space42, "", txt42);
+                            printf("%*s%s\n", space43, "", txt43);
+                            printf("%*s%s\n", space44, "", txt44);
+                            printf("%*s%s\n", space45, "", txt45);
+                            printf("%*s%s\n", space46, "", txt46);
+                            printf("%*s%s\n", space47, "", txt47);
+                            while(1){
+                                printf("\nDigite um número do cardápio de sua preferência(0 = Voltar): ");
+                                if(scanf("%d", &r) != 1){
+                                    printf("                 ERROR!!\n                                                                                      ERROR!!\n                                                ERROR!!\n             ERROR!!\n                                                                               ERROR!!\n\n                                                  DIGITE APENAS NÚMEROS!\n\n");
+                                    while (getchar() != '\n');
+                                    continue;
+                                }
+                                
+                                if(r == 0){
+                                    printf("\n\n%*s%s\n\n", space48, "", txt48);
+                                    break;
+                                }
+                                else if(r >= 1 && r <= 5){
+                                    int cod = r + 9;
+                                    printf("Quatidade{Max. 10}(0 = Voltar): ");
+                                    scanf("%d", &quantidade);
+                                    
+                                    if(quantidade >= 1 && quantidade <= 10){
+                                        car[qtdCar][0] = cod;
+                                        car[qtdCar][1] = quantidade;
+                                        qtdCar++;
+                                        printf("\n%d %s adicionado(s) ao carrinho!\n", quantidade, produtos[cod]);
+                                    }
+                                    else if(quantidade == 0){
+                                        printf("%*s%s\n", space48, "", txt48);
+                                        continue;
+                                    }
+                                    else{
+                                        printf("Quantidade inválida!!\n");
+                                    }
+                                }
+                                else{
+                                    printf("Número inválido!!\n");
+                                }
+                                continue;
+                            }
+                        }
+                        
+                        //Carrinho e checkout
+                        else if(l == 4){
+                            printf("\033[A");
+                            printf("\033[2K");
+                            
+                            while(1){
+                                if(buyEnd1 == 1){
+                                    break;
+                                }
+                                total = 0;
+                                
+                                printf("\n%*s%s\n\n", space50, "", txt50);
+                                
+                                for(int i = 0; i < qtdCar; i++){
+                                    int cod = car[i][0];
+                                    int qtd = car[i][1];
+                                    
+                                    sprintf(txt51, "%d. %s", i + 1, produtos[cod]);
+                                    int space51 = (largura - strlen(txt51)) / 2;
+                                    printf("%*s%s\n", space51, "", txt51);
+                                    
+                                    sprintf(txt52, "Quantidade: %d", qtd);
+                                    int space52 = (largura - strlen(txt52)) / 2;
+                                    printf("%*s%s\n", space52, "", txt52);
+                                    
+                                    sprintf(txt53, "Preco: R$ %.2f", precos[cod]);
+                                    int space53 = (largura - strlen(txt53)) / 2;
+                                    printf("%*s%s\n", space53, "", txt53);
+                                    
+                                    sprintf(txt54, "Subtotal: R$ %.2f", precos[cod] * qtd);
+                                    int space54 = (largura - strlen(txt54)) / 2;
+                                    printf("%*s%s\n\n", space54, "", txt54);
+                                    
+                                    total += precos[cod] * qtd;
+                                }
+                                
+                                float totalOrg = total;
+                                
+                                if(cupom == 1){
+                                    total *= 0.5;
+                                }
+                                
+                                economia = totalOrg - total;
+                                
+                                if(total == 0){
+                                    printf("\n%*s%s\n", space65, "", txt65);
+                                    printf("\n%*s%s\n\n\n", space66, "", txt66);
+                                    break;
+                                }
+                                else if(total > 0){
+                                    sprintf(txt55, "TOTAL: R$ %.2f\n", total);
+                                    int space55 = (largura - strlen(txt55)) / 2;
+                                    printf("%*s%s\n", space55, "", txt55);
+                                    
+                                    if(cupom == 1){
+                                        printf("\n%*s%s\n", space70, "", txt70);
+                                        sprintf(txt69, "Economizou R$ -%.2f\n", economia);
+                                        int space69 = (largura - strlen(txt69)) / 2;
+                                        printf("%*s%s\n", space69, "", txt69);
+                                    }
+                                    
+                                    //Menu de chekin
+                                    printf("%*s%s\n", space3, "", txt3);
+                                    printf("%*s%s\n\n", space56, "", txt56);
+                                    
+                                    if(scanf("%d", &w) != 1){
+                                        printf("\033[A");
+                                        printf("\033[2K");
+                                        printf("                 ERROR!!\n                                                                                      ERROR!!\n                                                ERROR!!\n             ERROR!!\n                                                                               ERROR!!\n\n                                                  DIGITE APENAS NÚMEROS!\n\n");
+                                        while(getchar() != '\n');
+                                        continue;
+                                    }
+                                    
+                                    else if(w == 0){
+                                        printf("\033[A");
+                                        printf("\033[2K");
+                                        printf("%*s%s\n\n", space48, "", txt48);
+                                        break;
+                                    }
+                                    
+                                    else if(w == 1){
+                                        printf("\033[A");
+                                        printf("\033[2K");
+                                        printf("\n%*s%s\n", space71, "", txt71);
+                                        printf("%*s%s\n", space72, "", txt72);
+                                        scanf("%d", &pag);
+                                        
+                                        //Pagamento em Dinheiro
+                                        if(pag == 1){
+                                            printf("\033[A");
+                                            printf("\033[2K");
+                                            if(buyEnd){
+                                                break;
+                                            }
+                                            printf("\n%*s%s\n", space73, "", txt73);
+                                            printf("%*s%s\n", space74, "", txt74);
+                                            scanf("%d", &troco);
+                                            
+                                            if(troco == 1){
+                                                printf("\033[A");
+                                                printf("\033[2K");
+                                                while(1){
+                                                    printf("\n%*s%s\n", space75, "", txt75);
+                                                    scanf("%lf", &troco1);
+                                                    if(troco1 < total){
+                                                        printf("%*s%s\n", space76, "", txt76);
+                                                    }
+                                                    else{
+                                                        double troco2 = troco1 - total;
+                                                        sprintf(txt77, "Seu troco é R$ %.2f", troco2);
+                                                        int space77 = (largura - strlen(txt77)) / 2;
+                                                        printf("%*s%s\n\n", space77, "", txt77);
+                                                        printf("%*s%s\n", space78, "", txt78);
+                                                        sleep(1);
+                                                        printf("%*s%s\n", space79, "", txt79);
+                                                        sleep(3);
+                                                        printf("%*s%s\n", space80, "", txt80);
+                                                        sleep(2);
+                                                        printf("%*s%s\n", space81, "", txt81);
+                                                        sleep(4);
+                                                        printf("%*s%s\n", space82, "", txt82);
+                                                        sleep(3);
+                                                        printf("\n%*s%s\n\n", space83, "", txt83);
+                                                        
+                                                        printf("%*s%s\n", space112, "", txt112);
+                                                        printf("%*s%s\n", space113, "", txt113);
+                                                        scanf("%d", &avaliar);
+                                                        //printf("\033[A");
+                                                        //printf("\033[2K");
+                                                        printf("\n%*s%s\n\n", space92, "", txt92);
+                                                        
+                                                        qtdCar = 0;
+                                                        buyEnd = 1;
+                                                        buyEnd1 = 1;
+                                                        total = 0;
+                                                        economia = 0;
+                                                        cupom = 0;
+                                                        cupomUsed[userAtual] = 1;
+                                                        break;
+                                                    }
+                                                }
+                                            }
+                                            else if(troco == 2){
+                                                printf("\033[A");
+                                                printf("\033[2K");
+                                                printf("%*s%s\n", space78, "", txt78);
+                                                sleep(1);
+                                                printf("%*s%s\n", space79, "", txt79);
+                                                sleep(3);
+                                                printf("%*s%s\n", space80, "", txt80);
+                                                sleep(2);
+                                                printf("%*s%s\n", space81, "", txt81);
+                                                sleep(4);
+                                                printf("%*s%s\n", space82, "", txt82);
+                                                sleep(3);
+                                                printf("\n%*s%s\n\n", space83, "", txt83);
+                                                
+                                                printf("%*s%s\n", space112, "", txt112);
+                                                printf("%*s%s\n", space113, "", txt113);
+                                                scanf("%d", &avaliar);
+                                                //printf("\033[A");
+                                                //printf("\033[2K");
+                                                printf("\n%*s%s\n\n", space92, "", txt92);
+                                                
+                                                qtdCar = 0;
+                                                buyEnd = 1;
+                                                buyEnd1 = 1;
+                                                total = 0;
+                                                economia = 0;
+                                                cupom = 0;
+                                                cupomUsed[userAtual] = 1;
+                                                break;
+                                            }
+                                        }
+                                        
+                                        //Pagamento via cartão de Crédito ou Débito
+                                        else if(pag == 2 || pag == 3){
+                                            printf("\033[A");
+                                            printf("\033[2K");
+                                            
+                                            if(pag == 2) {
+                                                printf("\n%*s%s\n", space84, "", txt84);
+                                            }
+                                            
+                                            else{
+                                                printf("\n%*s%s\n", space85, "", txt85);
+                                            }
+                                            
+                                            printf("Digite o numero do cartao: ");
+                                            scanf("%s", num_cartao);
+                                            
+                                            printf("Digite a validade (MM/AA): ");
+                                            scanf("%s", validade_cartao);
+                                            
+                                            printf("Digite o CVV (Saldo insuficiente, digite 000): ");
+                                            scanf("%s", cvv_cartao);
+                                            
+                                            printf("\n%*s%s\n\n", space86, "", txt86);
+                                            sleep(2);
+                                            
+                                            //Aprovação e reprovação do cartão
+                                            if(strcmp(cvv_cartao, "000") == 0){
+                                                sleep(2);
+                                                printf("%*s%s\n", space88, "", txt88);
+                                                printf("%*s%s\n", space89, "", txt89);
+                                                printf("%*s%s\n\n", space90, "", txt90);
+                                            } 
+                                            else{
+                                                sleep(2);
+                                                printf("%*s%s\n\n", space87, "", txt87);
+                                                
+                                                printf("%*s%s\n", space78, "", txt78);
+                                                sleep(1);
+                                                printf("%*s%s\n", space79, "", txt79);
+                                                sleep(3);
+                                                printf("%*s%s\n", space80, "", txt80);
+                                                sleep(2);
+                                                printf("%*s%s\n", space81, "", txt81);
+                                                sleep(4);
+                                                printf("%*s%s\n", space82, "", txt82);
+                                                sleep(3);
+                                                printf("\n%*s%s\n\n", space83, "", txt83);
+                                                
+                                                printf("%*s%s\n", space112, "", txt112);
+                                                printf("%*s%s\n", space113, "", txt113);
+                                                scanf("%d", &avaliar);
+                                                //printf("\033[A");
+                                                //printf("\033[2K");
+                                                printf("\n%*s%s\n\n", space92, "", txt92);
+                                                
+                                                qtdCar = 0;
+                                                buyEnd = 1;
+                                                buyEnd1 = 1;
+                                                total = 0;
+                                                economia = 0;
+                                                cupom = 0;
+                                                cupomUsed[userAtual] = 1;
+                                                break;
+                                            }
+                                        }
+                                        
+                                        // Pagamento em PIX
+                                        else if(pag == 4){
+                                            printf("\033[A");
+                                            printf("\033[2K");
+                                            printf("\n%*s%s\n\n", space91, "", txt91);
+                                            printf("███████████   █       ████          ███████████\n█         █     █       █   ████    █         █\n█    █    █     ███████      █      █    █    █\n█         █       █   █  █     █    █         █\n███████████  ████    ████           ███████████\n               █        █     █                \n███  ████       ██████████    █   ██  ██  █    \n    ███      █        █           █████  ███   \n    █  ███████████  █              █  ██       \n█████   █             █████   █      ██        \n█    ██████         ██   ███   ████████████    \n█████   █             █████   █      ██        \n             █████          █      ████    ██  \n███████████    ████         ████  ███  █       \n█         █   █████████     █   ███     ███    \n█    █    █         ██        █  ███        ██ \n█         █    ██         █     █   █    █  █  \n███████████   ███████     ████   ██  ████      ");
+                                            printf("\n%*s%s\n", space109, "", txt109);
+                                            printf("\n%*s%s\n", space110, "", txt110);
+                                            printf("\n%*s%s\n", space111, "", txt111);
+                                            sleep(4);
+                                            printf("%*s%s\n\n", space87, "", txt87);
+                                            
+                                            printf("%*s%s\n", space78, "", txt78);
+                                            sleep(1);
+                                            printf("%*s%s\n", space79, "", txt79);
+                                            sleep(3);
+                                            printf("%*s%s\n", space80, "", txt80);
+                                            sleep(2);
+                                            printf("%*s%s\n", space81, "", txt81);
+                                            sleep(4);
+                                            printf("%*s%s\n", space82, "", txt82);
+                                            sleep(3);
+                                            printf("\n%*s%s\n\n", space83, "", txt83);
+                                            
+                                            printf("%*s%s\n", space112, "", txt112);
+                                            printf("%*s%s\n", space113, "", txt113);
+                                            scanf("%d", &avaliar);
+                                            //printf("\033[A");
+                                            //printf("\033[2K");
+                                            printf("\n%*s%s\n\n", space92, "", txt92);
+                                            
+                                            qtdCar = 0;
+                                            buyEnd = 1;
+                                            buyEnd1 = 1;
+                                            total = 0;
+                                            economia = 0;
+                                            cupom = 0;
+                                            cupomUsed[userAtual] = 1;
+                                            break;
+                                        }
+                                    }
+                                    
+                                    //remover item do carrinho
+                                    else if(w == 2){
+                                        printf("\033[A");
+                                        printf("\033[2K");
+                                        
+                                        printf("Digite o número do item que deseja remover(0. cancelar): ");
+                                        scanf("%d", &remover);
+                                        
+                                        if(remover == 0){
+                                            continue;
+                                        }
+                                        
+                                        else if(remover < 0 || remover > qtdCar){
+                                            printf("Item inválido!\n");
+                                            continue;
+                                        }
+                                        
+                                        remover--;
+                                        
+                                        for(int i = remover; i < qtdCar - 1; i++){
+                                            car[i][0] = car[i + 1][0];
+                                            car[i][1] = car[i + 1][1];
+                                        }
+                                        
+                                        qtdCar--;
+                                    }
+                                    
+                                    //cupom de desconto
+                                    else if(w == 3){
+                                        printf("\033[A");
+                                        printf("\033[2K");
+                                        printf("Digite um cupom: ");
+                                        scanf("%s", cup);
+                                        if(strcmp(cup, "newuser") == 0 && cupom == 1){
+                                            printf("\n%*s%s\n\n", space68, "", txt68);
+                                        }
+                                        else if(strcmp(cup, "newuser") == 0 && cupomUsed[userAtual] == 0){
+                                            cupom = 1;
+                                            printf("\n%*s%s\n\n", space67, "", txt67);
+                                        }
+                                        else{
+                                            printf("\n%*s%s\n\n", space68, "", txt68);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                        else{
+                            printf("\033[A");
+                            printf("\033[2K");
+                            printf("Número inválido! Tente novamente.\n");
+                        }
+                    } // Fim loop lojas
+                    
+                } // Fim verificação usuário/senha
+            }
+            
+            if(!contas){
+                printf("%*s%s\n\n", space7, "", txt7);
+            }
+        }
+        else{
+            printf("\033[A");
+            printf("\033[2K");
+            printf("%*s%s\n\n", space64, "", txt64);
+        }
+    }
+    
+    return 0;
+}
